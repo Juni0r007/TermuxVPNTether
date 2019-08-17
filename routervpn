@@ -22,7 +22,7 @@ A="\033[1;36m"
 c="\033[5;31m"
 port="8080"
 #echo -e "\033[5;31mteste\033[1;37m"
-ip=$(ifconfig | awk -F: '/inet addr/ { print $2 } '| sed s/Bcast//g | sed s/Mask//g | sed s/P-t-P//g | sed '1d')
+ip=$(ip addr | awk '/inet / {print $2}' | cut -d"/" -f1)
 #nome=$(cat /data/data/com.termux/files/home/user)
 pp()
                     {
